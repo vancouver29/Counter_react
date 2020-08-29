@@ -1,12 +1,27 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class TodoApp extends Component {
   render() {
     return (
       <div className="TodoApp">
-        <LoginComponent />
+        <Router>
+          <>
+            <Route path="/" exact component={LoginComponent} />
+            <Route path="/login" component={LoginComponent} />
+            <Route path="/welcome" component={WelcomeComponent} />
+          </>
+        </Router>
+        {/* <LoginComponent />
+        <WelcomeComponent /> */}
       </div>
     );
+  }
+}
+
+class WelcomeComponent extends Component {
+  render() {
+    return <div>Welcome Vancouver</div>;
   }
 }
 
@@ -17,7 +32,7 @@ class LoginComponent extends Component {
       username: "vancouver",
       password: "",
       hasLoginFailed: false,
-      showSuccessMessage: true,
+      showSuccessMessage: false,
     };
 
     // this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -66,8 +81,8 @@ class LoginComponent extends Component {
     return (
       <div>
         {/* <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed} /> */}
-        {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
         {/* <ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage} /> */}
+        {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
         {this.state.showSuccessMessage && <div>Login Successful</div>}
         User Name:{" "}
         <input
