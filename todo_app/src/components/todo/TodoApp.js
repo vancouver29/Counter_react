@@ -56,7 +56,11 @@ class HeaderComponent extends Component {
               </Link>
             </li>
             <li>
-              <Link className="nav-link" to="/logout">
+              <Link
+                className="nav-link"
+                to="/logout"
+                onClick={AuthenticationService.logout}
+              >
                 Logout
               </Link>
             </li>
@@ -73,17 +77,6 @@ class FooterComponent extends Component {
       <footer className="footer">
         <span className="text-muted">All Rights Reserved 2020 @vancouver</span>
       </footer>
-    );
-  }
-}
-
-class LogoutComponent extends Component {
-  render() {
-    return (
-      <>
-        <h1>You are logged out</h1>
-        <div className="container">Thank you for Using Our Application</div>
-      </>
     );
   }
 }
@@ -256,6 +249,17 @@ class LoginComponent extends Component {
           </button>
         </div>
       </div>
+    );
+  }
+}
+
+class LogoutComponent extends Component {
+  render() {
+    return (
+      <>
+        <h1>You are logged out</h1>
+        <div className="container">Thank you for Using Our Application</div>
+      </>
     );
   }
 }
