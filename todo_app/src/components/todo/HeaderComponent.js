@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthenticationService from "./AuthenticationService";
+import { withRouter } from "react-router-dom";
 
-export default class HeaderComponent extends Component {
+class HeaderComponent extends Component {
   render() {
     const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
     console.log(isUserLoggedIn);
@@ -55,3 +56,5 @@ export default class HeaderComponent extends Component {
     );
   }
 }
+
+export default withRouter(HeaderComponent);
